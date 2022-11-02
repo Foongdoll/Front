@@ -1,0 +1,92 @@
+<!-- 
+  FlexBox는 바둑판 모양의 정렬이 어렵다. 즉, 한방향 레이아웃에는 적합하다.(1차원)
+  Grid Layout은 2차원(가로/세로) 구조의 레이아웃으로 작업 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test7.html(Grid Layout)</title>
+  <style>
+    *{
+      margin: 0px; 
+      font-size: 1em;
+    }
+    .item{
+      color: #000;
+    }
+    /* 그리드 형태 정의(grid-template-rows , grid-template-columns)*/
+    /* 그리드를 이용한 항목간의 병합*/
+    .container{
+      /* 그리드 전체 레이아웃을 가운데 정렬하기*/
+      width: 1000px;
+      margin: 0px auto;
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-columns: 180px auto 150px;
+      grid-auto-rows: minmax(10em, auto);
+
+    }
+    /* 1번 아이템을 header로 지정하려고 한다.(축의 시작은 1이다.) 
+      문제에서 1열~3열까지를 1개로 병합하려고 한다면? 축의 시작이 1이고 마지막은 4이다. */
+    .item:nth-child(1){
+      grid-column: 1/4; /* 1번축에서 4번축까지 1/4로 한다.*/
+    } 
+    /* 4번 아이템을 2번과 3행으로 병합하려고 한다.*/   
+    .item:nth-child(4){
+      grid-row: 2/4; /* 행의 2번축에서 4번까지 */
+      grid-column: 3;
+    }
+
+  
+    /* 9번 아이템을 footer로 정의하고자한다*/
+    .item:nth-child(9){
+      grid-column: 1/4; 
+    }
+    input{
+      width: 150px;
+    }
+    #fset1{
+      width: 0px;
+      height: auto;
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item" style="background-color:#2274FF">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+    <form>
+    <fieldset id="fset1">
+      <label for="mid">아이디</label>
+      <input type="text" name="mid" id="mid" required  />
+      <label for="pwd">비밀번호</label>
+      <input type="password" name="pwd" id="pwd" />
+      <input type="submit" value="로그인">
+      <input type="reset" value="취소">
+    </fieldset>
+  </form>
+    <div class="item" style="background-color:#a5Cf95">
+      3.안녕하세요
+      3.안녕하세요
+      3.안녕하세요
+    </div>  
+    <div class="item" style="background-color:#95B5FF">4.안녕하세요</div>  
+    <div class="item" style="background-color:#c5b3b3">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>   
+    <div class="item" style="background-color:#9675C9">6.안녕하세요</div>
+    
+    <div class="item" style="background-color:#d2e34e">7.안녕하세요</div>
+    <div class="item" style="background-color:#9675C9">8.안녕하세요</div>
+    <div class="item" style="background-color:#1d36d7">9.안녕하세요</div>
+    <!-- <div class="item" style="background-color:#ff1616">10.안녕하세요</div> -->
+  </div>
+</body>
+</html>
