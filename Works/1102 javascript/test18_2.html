@@ -8,7 +8,15 @@
   <script>
     'use strict'
     function fCheck(){
-      let gender = myform.gender.value;
+      let gender
+      // if(document.getElementById(gender1).value == "남자")
+      // gender = "남자";
+      // else if(document.getElementById(gender2).value == "여자")
+      // gender = "여자";
+      if(document.getElementsByName("gender")[0].checked) gender = "남자";
+      if(document.getElementsByName("gender")[1].checked) gender = "여자";
+
+
 
 
       // demo.innerText = gender;
@@ -18,9 +26,7 @@
       demo.innerHTML = "<font color='red'><b>"+gender+"</b></font>";
     }
 
-
   </script>
-  
 </head>
 <body>
   <h2>라디오 버튼</h2>
@@ -29,7 +35,7 @@
     <label for="gender">성 별</label>
     <input type="radio" name="gender" id="gender1" value="남자" checked />남자
     <input type="radio" name="gender" id="gender2" value="여자"/>여자
-    <input type="button" value="값체크" onclick="fCheck()">
+    <input type="button" value="값체크" onclick="fCheck()"/>
   </div>
 </form>
   <hr/>
