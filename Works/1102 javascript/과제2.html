@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    'use strict'
+    function sum(su){
+      document.getElementById("help").value += su;
+    }
+    function help1(su){
+      if(su==0){
+        document.getElementById("help").value = "";
+      }
+      else if(su==1){
+        document.getElementById("help").value += "+";
+      }
+      else if(su==2){
+        document.getElementById("help").value += "-";
+      }
+      else if(su==3){
+        document.getElementById("help").value += "*";
+      }
+      else {
+        document.getElementById("help").value += "/";
+      }
+    }
+    function res(){
+      let cnt = eval(document.getElementById("help").value);
+      document.getElementById("help").value = parseFloat(cnt);
+    }
+    
+  </script>
+  <style>
+    body{
+      margin: 0px auto;
+    }
+
+    .container{
+      display: grid;
+      grid-template-columns: auto auto auto 1fr;
+      margin: 0px auto;
+    }
+    
+    .btn{
+      margin: 0px auto;
+      width: 300px;
+      height: 100px;
+    }
+    #help{
+      width: 500px;
+      height: 200px;
+      border: 2px solid pink;
+    }
+  </style>
+</head>
+<body>
+  <form name="myform" method="get" action="">
+    <div><input type="text" name="help" id="help"></div>
+  <div class="container">
+    <div><input type="button" class="btn" value="1" onclick="sum(1)"></div>
+    <div><input type="button" class="btn" value="2" onclick="sum(2)"></div>
+    <div><input type="button" class="btn" value="3" onclick="sum(3)"></div>
+    <div><input type="button" class="btn" value="+" onclick="help1(1)"></div>
+  </div>
+  <div class="container">
+    <div><input type="button" class="btn" value="4" onclick="sum(4)"></div>
+    <div><input type="button" class="btn" value="5" onclick="sum(5)"></div>
+    <div><input type="button" class="btn" value="6" onclick="sum(6)"></div>
+    <div><input type="button" class="btn" value="-" onclick="help1(2)"></div>
+  </div>
+  <div class="container">
+    <div><input type="button" class="btn" value="7" onclick="sum(7)"></div>
+    <div><input type="button" class="btn" value="8" onclick="sum(8)"></div>
+    <div><input type="button" class="btn" value="9" onclick="sum(9)"></div>
+    <div><input type="button" class="btn" value="*" onclick="help1(3)"></div>
+  </div>
+  <div class="container">
+    <div class="btn"><input type="button" class="btn" value="/" onclick="help1(4)"></div>
+    <div><input type="button" class="btn" value="AC" onclick="help1(0)"></div>
+    <div class="btn"><input type="button" class="btn" value="=" onclick="res()"></div>
+  </div>
+  </form>
+</body>
+</html>

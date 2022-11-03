@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기</title>
+  <script>
+    'use strict'
+    cnt1 = 0;
+    cnt2 = 0;
+    function sum(){
+      let su = new Array();
+      let op = new Array();
+      let res= new Array();
+      su[cnt1] = document.getElementsByName("su")[cnt1].values;
+      cnt1++;
+      op[cnt2]  = document.getElementsByName("op")[cnt2].values;
+      cnt2++;
+      for(var i = 0; i < su.length; i++){
+        res[i] = parseInt(su[i])+op[i]; 
+      }
+      for(let res1 in res){
+        result = eval(res1);
+      }
+      demo.innerHTML = result;
+    }
+  
+
+
+  </script>
+  <style>
+    h2{
+      text-align: center
+    }
+    .container1{
+      display: grid;
+      grid-template-columns: auto auto auto 1fr; 
+      grid-gap: 0em;
+      margin: 0px auto;
+      width: 1100px;
+    }
+    .container2{
+      display: grid;
+      grid-template-columns: auto auto auto 1fr; 
+      margin: 0px auto;
+      grid-gap: 0em;
+      width: 1100px;
+    }
+    .container3{
+      display: grid;
+      grid-template-columns: auto auto auto 1fr; 
+      margin: 0px auto;
+      grid-gap: 0em;
+      width: 1100px;
+    }
+    .container4{
+      display: grid;
+      grid-template-columns: 1fr auto auto 1fr; 
+      margin: 0px auto;
+      grid-gap: 0em;
+      width: 1100px;
+      margin-right: 402px;
+    }
+    .su {
+      width: 273px;
+      height: 200px;
+      border: 1px solid pink;
+      font-size: 2em;
+    }
+    .su1 {
+      width: 273px;
+      height: 200px;
+      border: 1px solid pink;
+      font-size: 2em;
+    }
+    .su2 {
+      width: 273px;
+      height: 200px;
+      border: 1px solid pink;
+      font-size: 2em;
+    }
+    .su3 {
+      width: 273px;
+      height: 200px;
+      border: 1px solid pink;
+      font-size: 2em;
+    }
+    .output  input{
+      margin-left: 35px;
+      width: 200px;
+      height: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>짜잔 여기는 만능 계산기</h2>
+  <div class="container">
+    <form name="myform" method="get" action="#">
+      <div class="container1">
+        <div id="su0" class="su">
+          <input type="button" name="su" class="su" value="1" onclick="sum(1)"/>
+        </div>
+
+        <div id="su1" class="su">
+          <input type="button" name="su" class="su" value="2" onclick="sum(2)"/>
+        </div>
+        <div id="su2" class="su">
+          <input type="button" name="su" class="su" value="3" onclick="sum()"/>
+        </div>
+        <div class="su">
+          <input type="button" name="op" class="su" value="+" onclick="sum()"/>
+        </div>
+      </div>
+      <div class="container2"> 
+        <div id="su3" class="su1">
+          <input type="button" name="su" class="su" value="4" onclick="sum()"/>
+        </div>
+        <div id="su4" class="su1">
+          <input type="button" name="su" class="su" value="5" onclick="sum()"/>
+        </div>
+        <div id="su5" class="su1">
+          <input type="button" name="su" class="su" value="6" onclick="sum()"/>
+        </div>
+        <div class="su1">
+          <input type="button" name="op" class="su" value="-" onclick="sum()"/>
+        </div>
+      </div>
+      <div class="container3">      
+        <div id="su6" class="su2">
+          <input type="button" name="su" class="su" value="7" onclick="sum()"/>
+        </div>
+        <div id="su7" class="su2">
+          <input type="button" name="su" class="su" value="8" onclick="sum()"/>
+        </div>
+        <div id="su8" class="su2">
+          <input type="button" name="su" class="su" value="9" onclick="sum()"/>
+        </div>
+        <div class="su1">
+          <input type="button" name="op" class="su" value="*" onclick="sum()"/>
+        </div>
+      </div>
+      <div class="container4">
+        <div class="output">
+          <input type="text" name="output" id="output" readonly>
+          <input type="text" name="res" id="res" readonly>
+        </div>
+        <div id="su9" class="su3">
+          <input type="button" name="su" class="su" value="0" onclick="sum()"/>
+        </div>
+        <div class="su3">
+          <input type="button" name="op" class="su" value="A/C" onclick="sum()"/>
+        </div>
+        <div class="su3">
+          <input type="button" name="op" class="su" value="/" onclick="sum()"/>
+        </div>
+      </div>
+        </form>
+      </div>
+  
+  <div id="demo"></div>
+</body>
+</html>

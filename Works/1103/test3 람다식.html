@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쥐람다식(람다식 : Arrow Fucntion)</title>
+  <script>
+    'use strict'
+
+    let fCheck0 = function (){
+      alert("익명함수를 호출하셨습니다.")
+    }
+    let fCheck1 = () => {
+      alert("Arrow함수를 호출하셨습니다.")
+    }
+
+    let fCheck2 = () => alert("Arrow함수를 호출하셨습니다.") // 함수인데 밑에 fCheck2 에 () 을 붙여야하는지 여쭤보기
+
+  </script>
+</head>
+<body>
+  <h2>Arrow function</h2>
+  <p>
+    <input type="button" value="익명함수 호출1" onclick="fCheck0()"/>
+    <input type="button" value="Arrow함수 호출1" onclick="fCheck1()"/>
+    <input type="button" value="Arrow함수 호출2" onclick="fCheck2()"/>
+  </p>
+</body>
+</html>

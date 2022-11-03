@@ -13,8 +13,8 @@
       // gender = "남자";
       // else if(document.getElementById(gender2).value == "여자")
       // gender = "여자";
-      if(document.getElementsByName("gender")[0].checked) gender = "남자";
-      if(document.getElementsByName("gender")[1].checked) gender = "여자";
+      if(document.getElementById("gender1").checked) gender = "남자";
+      if(document.getElementById("gender2").checked) gender = "여자";
 
 
 
@@ -25,7 +25,7 @@
       else
       demo.innerHTML = "<font color='red'><b>"+gender+"</b></font>";
     }
-
+    
   </script>
 </head>
 <body>

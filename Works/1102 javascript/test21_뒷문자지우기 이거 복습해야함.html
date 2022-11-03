@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뒷문자 1개씩 지우기</title>
+  <script>
+    'use strict';
+
+    function backClear() {
+      let str = document.getElementById("str").value;
+      if(str == "") {
+        alert("내용을 입력하세요");
+      }
+      else {
+        str = str.substring(0,str.length-1);
+        document.getElementById("str").value = str;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>뒷문자를 차례로 1개씩 지우기</h2>
+  <form name="myform">
+    <div>문자입력 : 
+      <input type="text" name="str" id="str" placeholder="문자를 입력하세요"/>
+      <input type="button" value="BackSpace" onclick="backClear()"/>
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</body>
+</html>
