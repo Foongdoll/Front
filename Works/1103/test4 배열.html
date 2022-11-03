@@ -34,7 +34,29 @@
       console.log("arr2["+cnt+"] = "+a);
       cnt++;
     }
+    console.clear();
 
+    //for Each문을 이용한 반복 출력 : 객체명.forEach();
+    //arr2.forEach(function(arr, index, array)
+    arr2.forEach(function(){
+      console.log("값 : "+ "/");
+    });
+    
+    console.log("---------------------------");
+    arr2.forEach(function(arr){
+      console.log(arr+"/");
+    });
+    console.log("---------------------------");
+    // 익명함수를 Arrow함수로 변형해보자 
+    arr2.forEach((arr) => {
+      console.log(arr+"/");
+    })
+    
+    console.log("---------------------------");
+    arr2.forEach((arr) => console.log(arr+"/"));
+    
+    console.log("---------------------------");
+    arr2.forEach((arr,index) => console.log(index+" : "+arr+"/"));
   </script>
 </head>
 <body>

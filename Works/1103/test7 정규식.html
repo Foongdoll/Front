@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정규표현식</title>
+  <script src="test7.js"></script>
+</head>
+<body>
+  <h2>정규식(Regular Expression)</h2>
+  <form name="myform" method="get" action="">
+    <div>
+      문자열 : 
+      <p><input type="text" name="content" id="content" autofocus required></p>
+      <!-- <textarea id="content" cols="40" rows="4" autofocus></textarea> -->
+      <p><input type="button" value="정규식체크" onclick="regexCheck()"></p>
+    </div>
+  </form>
+  <hr/>
+  <pre>
+    정규표현식의 형식 : / ~~~~~~~ / 플러그인 문자
+    플러그인 : 
+      g(global)      : 전체범위에서 처리한다.
+      m(multiline)   : 여러줄에 걸쳐서 처리하겠다. (textarea 태그)
+      s(singline)    : 한줄만 처리한다.
+      i : 영문인경우 대소문자 구별하지않겠다.
+      u(unicode)     : 유니코드에 대한 처리
+
+
+      정규표현식을 실행하기위해서? 
+        1. 사용자입력문자열.match(정규표현식변수)
+        2. 정규표현식변수.test(사용자입력문자열)
+  </pre>
+</body>
+</html>

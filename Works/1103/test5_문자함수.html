@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수연습</title>
+</head>
+<body>
+  <h2>함수연습</h2>
+  <pre>
+                    0987654321
+    0         1         2
+    0123456789012345678901234567890
+    ABCDEFGHIJKLMNOPQRSTUVWXYZABCopq
+  </pre>
+  <hr/>
+  <p><div id="demo"></div></p>
+  <p>length :  객체(문자열)의 길이</p>
+  <p>slice(a,b) : 지정된 문자열(a에서 b앞까지)을 추출해준다.</p>
+  <p>substring(a,b) : 지정된 문자열(a에서 b앞까지)을 추출해준다.</p>
+  <p>substr() : </p>
+  <p>replace(a,b) : a를 b로 치환</p>
+  <p>replaceAll(a,b) : a를 b로 모두 치환</p>
+  <p>toUpperCase() : 대문자로 치환</p>
+  <p>toLowerCase() : 소문자로 치환</p>
+  <p>concat(a, b)~~ : a와 b를 결합한다.</p>
+  <p>trim() : 양쪽 공백을 없애준다.</p>
+  <p>trimStart() : 앞쪽 공백을 없애준다.</p>
+  <p>trimEnd() : 뒤쪽 공백을 없애준다.</p>
+  <p>charCodeAt() : 그 자리 문자의 아스키 코드 값을 가져온다</p>
+  <p>split() : 구분자를 기준으로 잘라준다. 잘라진 각각의 요소는 배열로 저장</p>
+  <p>indexOf() : 특정 문자의 위치값가져옴</p>
+  <p>lastindexOf() : 뒤에서 부터 특정 문자의 위치값가져옴 단, 위치값은 인덱스 0번부터 몇번째인지 알려줌</p>
+  <p>search() : 특정문자의 위치값을 찾아준다.(찾는값이 여러개일경우 맨 앞글자의 인덱스 번호를 가져온다)</p>
+  <p>match() : 찾는 문자열이 있으면 '문자열'을 반환, 없으면 '공백'을 반환</p>
+  <p>includes() : 찾는 문자열을 포함하고있으면 true 없으면 false 반환</p>
+
+
+<script>
+    'use strict';
+    let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCopq";
+    let text2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCopq";
+
+    // document.getElementById("demo").innerHTML = text;
+    demo.innerText = text.length;
+
+    // let str = text.slice(10,15); // 10번째부터 15번째 앞까지 추출
+    // let str = text.slice(-10);   // 뒤에서 10개 문자 를 추출한다.
+    let str = text.slice(-10, -5);  // 뒤에서 10번째부터 뒤쪽 -5앞까지 발췌
+    str = text.substring(10,15);    // 10번째부터 15번째 앞까지 추출
+    str = text.substring(10);
+    str = text.substr(10);
+    str = text.substr(-10);
+    str = text.replace("OPQR", "ABC");
+    str = text.replace("opqr", "ABC");
+    str = text.replace("ABC", "OPQ");
+    str = text.replaceAll("ABC", "OPQ");
+    str = text.toUpperCase();
+    str = text.toLowerCase();
+    str = text.concat("안녕!");
+    str = "안녕".concat(text)+"하세요";
+    str = text2.trim() + "하세요";
+    str = text2.trimStart() + "하세요";
+    str = "안녕"+text2.trimEnd() + "하세요";
+    str = text2.replaceAll(" ","");
+    // str = text.charAt(0);
+    str = text.charCodeAt(0);
+    str = text[0];
+    // text[0] = "9";
+    str = text;
+    let strArr = text.split("B"); // 지정된 문자에 ','로 구분한다. \
+    let temp = "";
+    for(let item  of strArr){
+      temp += item+"/"
+      console.log(temp);
+    }
+    str = text.indexOf("B");
+    str = text.lastIndexOf("B");
+    str = text2.search("BCD");
+    str = text2.match("BCD")
+
+    let price = 100; //가격 
+    let vat = 0.25; // 부가 가치세
+    let tot = price * (1 + vat)
+
+    str = "총 금액 : "+tot;
+    str = `총 금액 : $(price * (1+vat))`;
+
+    demo.innerText = str;
+  </script>
+</body>
+</html>
