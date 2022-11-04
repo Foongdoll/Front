@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적폼</title>
+  <script>
+    'use strict';
+    let newText = "";
+    let idx = 0;
+
+    // 1.입력폼 1개 추가하기
+    /*
+    function inputBox() {
+      let newText = '<input type="text" name="product" id="product" />';
+      demo.innerHTML = newText;
+    }
+    */
+    
+    // 2.클릭할때마다 입력폼 추가하기
+    function inputBox() {
+      newText += '<input type="text" name="product" id="product" /><br/>';
+      demo.innerHTML = newText;
+    }
+    
+    // .클릭할때마다 입력폼 추가하기('지우기'버튼추가) : 각 TextField마다 고유한 id를 지정한다.
+    function inputBox() {
+      idx++;
+        newText = demo.innerHTML;
+        newText += '<div id="proTxt'+idx+'">'
+        newText += idx + '.<input type="text" name="product" id="product'+idx+'" /> &nbsp;';
+        newText += "<input type='button' value='"+idx+".삭제' onclick='deleteBox("+idx+")' /><br/>";
+        newText += '</div>'
+        demo.innerHTML = newText;
+    }
+
+    // 추가한 입력창 삭제
+    function deleteBox(idx) {
+      let proTxt = "proTxt"+idx;
+      let item = document.getElementById(proTxt);
+      item.parentNode.removeChild(item);
+
+    }
+
+    let reloadCheck = () => {
+      idx = "";
+      location.reload();
+    }
+
+  </script>
+</head>
+<body>
+  <h2>입력창 추가(동적폼)</h2>
+  <form name="myform">
+    <p>
+      <input type="button" value="입력창추가" onclick="inputBox()"/>
+      <input type="button" value="입력창모두제거" onclick="reloadCheck()"/>
+    </p>
+    <div id="demo"></div>
+  </form>
+</body>
+</html>

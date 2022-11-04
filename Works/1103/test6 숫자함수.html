@@ -23,7 +23,7 @@
   <p>min()    : 최소값 </p>
   <p>max()    : 최대값 </p>
   <p>random() : 난수   </p>
-  <p>toFixed(): 소수이하를 n번째까지 구한다</p>
+  <p>toFixed(): 소수이하를 n번째까지 구한다 n번쨰전까지 알아서 반올림해줌</p>
 
 
 
@@ -58,6 +58,18 @@
     
     // 1~45까지의 난수
     num = Math.floor(Math.random()*45).toFixed(0);
+
+    // toFixed() : 소수 반올림
+    let su3 = 123.456;    
+    let su4 = -123.456;   
+    let su5 = 345.678;  
+    let su6 = -345.678;    
+
+    // num = su3.toFixed(1);
+    // num = su4.toFixed(0);
+    // num = su5.toFixed(0);
+    num = su6.toFixed(0);
+
 
 
     demo.innerHTML = num

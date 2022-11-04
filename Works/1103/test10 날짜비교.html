@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>날짜함수2</title>
+  <script src="test10.js"></script>
+</head>
+<body>
+  <h2>날짜 비교</h2>
+  <form name="myform" action="">
+    <h4>시스템의 날짜와 비교하기</h4>
+    <input type="button" value="시스템의날짜가져오기" onclick="dateBring()" />
+    <hr/>
+    <div><input type="text" name="startdate" id="startdate" value="2022-11-05"/></div>
+    <hr/>
+    <div>
+      <p>날짜형식에 맞도록 비교할 날짜를 입력하세요.
+      <input type="text" name="enddate" id="enddate" value="2022-11-05"/>
+      <input type="button" value="날짜비교" onclick="compareDate()" />
+      </p>
+      <div id="demo"></div>
+    </div>
+
+  </form>
+</body>
+</html>
