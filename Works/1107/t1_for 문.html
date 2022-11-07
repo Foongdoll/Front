@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for문</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'
+
+    let fCheck = () => {
+
+      for(let i = 1; i <= 100; i++){
+          if((i%9) == 0)
+            document.write(i + "짝짝짝<br/>")
+          else if((i%6) == 0)
+            document.write(i + "짝짝<br/>")
+          if((i%3) == 0)
+            document.write(i + "짝<br/>")
+          else
+            document.write(i+"<br/>")
+
+      }
+
+    }
+
+
+
+  </script>
+</head>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+  <p> 1~100까지의 3의 배수는 '짝' 6의 배수는 '짝짝' 9의 배수는 '짝짝짝'</p>
+  <h2>for 문 연습</h2>
+  <p><input type="button" value="1~100까지 박수(3,6,9)" onclick="fCheck()" class="btn btn-danger"></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!-- 
+  FlexBox는 바둑판 모양의 정렬이 어렵다. 즉, 한방향 레이아웃에는 적합하다.(1차원)
+  Grid Layout은 2차원(가로/세로) 구조의 레이아웃으로 작업 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test7.html(Grid Layout)</title>
+  <style>
+    .item{
+      color: #000;
+    }
+    /* 그리드 형태 정의(grid-template-rows , grid-template-columns)*/
+    .container{
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      
+      /* grid-auto-rows: 200px; */
+      grid-auto-rows: minmax(200px,auto);
+      
+      /* 각각의 아이템 모두를 아이템 안에서 정렬처리(한번에)*/
+      justify-items: center; /*(행) 가로 정렬 start 왼쪽 정렬 , end 오른쪽정렬  , center 중앙정렬*/
+      align-items: center; /* (열) 세로 정렬 start(위로정렬) , end(아래로 정렬) ,center(수직에서 중앙 정렬) */
+      
+    }
+    .item:nth-child(6){
+      justify-self: center;
+      align-self: center;
+    }
+
+
+
+
+
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item" style="background-color:#2274FF">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+    <div class="item" style="background-color:#FF7490">2.안녕하세요</div>
+    <div class="item" style="background-color:#a5Cf95">
+      3.안녕하세요
+      3.안녕하세요
+      3.안녕하세요
+    </div>  
+    <div class="item" style="background-color:#95B5FF">4.안녕하세요</div>  
+    <div class="item" style="background-color:#c5b3b3">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>   
+    <div class="item" style="background-color:#9675C9">6.안녕하세요</div>
+    <div class="item" style="background-color:#d2e34e">7.안녕하세요</div>
+    <div class="item" style="background-color:#9675C9">8.안녕하세요</div>
+    <div class="item" style="background-color:#1d36d7">9.안녕하세요</div>
+    <!-- <div class="item" style="background-color:#ff1616">10.안녕하세요</div> -->
+  </div>
+  <div>안녕하세요...(20221102_1113)</div>
+</body>
+</html>

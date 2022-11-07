@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>While 문 연습</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'
+
+    let fCheck = () =>{
+      let i = 0 , tot = 0;
+      while(i < 100){
+        i++;
+        tot += i;
+        if((i % 10) == 0){
+          document.write("1~"+i+"의 합계는" + tot + "<br/>")
+        }
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>while문 연습</h2>
+    <p>1~100까지 10항씩마다 합계를 출력하시오</p>
+    <input type="button" value="10항의 합" onclick="fCheck()">
+  </div>
+</body>
+</html>

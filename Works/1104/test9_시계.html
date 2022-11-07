@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인터넷 시계</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script>
+    'use strict'  
+    let statusTime;
+
+    function clock(){
+      let today = new Date();
+      let hh = today.getHours();
+      let mm = today.getMinutes();
+      let ss = today.getSeconds();
+  
+      demo.innerHTML = "현재 시간 : "+hh+":"+mm+":"+ss;
+    }
+    function clockStart(){
+      clock();
+      statusTime = setInterval(clock,1000);
+    }
+
+    function clockStop(){
+      clearInterval(statusTime);
+    }
+
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>인터넷 시계</h2>
+    <p>
+      <input type="button" value="동작" onclick="clockStart()" class="btn btn-secondary" />
+      <input type="button" value="정지" onclick="clockStop()" class="btn btn-secondary" />
+    </p>
+    <hr/>
+  <div id="demo"></div>
+</body>
+</html>

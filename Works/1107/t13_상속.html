@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class(객체) 상속</title>
+  <script src="t13.js"></script>
+  <script>
+    'use strict';
+
+    class Child extends Member {}
+    
+  
+    let Childclass = new Child("홍길동",25,"빨강");
+
+    console.log("성명 : "+Childclass.name);
+    console.log("나이 : "+Childclass.age);
+    console.log("좋아하는 색 : "+Childclass.color);
+    
+    
+    
+  </script>
+</head>
+<body>
+  <h2>클래스 연습</h2>
+  
+</body>
+</html>

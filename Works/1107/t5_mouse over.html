@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse over 연습</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script>
+    'use strict'  
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>Mouse over 시에 그림 변경</h2>
+    <p>
+      <input type="button" value="그림감추기" onclick="document.getElementById('demo').style.display='none'" />
+      <input type="button" value="그림보이기" onclick="document.getElementById('demo').style.display='block'" />
+      <input type="button" value="그림 Over/Out"
+        onmouseover="document.getElementById('demo').style.display='none'"
+        onmouseout="document.getElementById('demo').style.display='block'";
+      />
+      <img src="btn1.jpg" 
+        onmouseover="src='btn1o.jpg'"
+        onmouseout="src='btn1.jpg'"
+        onclick="alert('그림을 클릭하셨습니다.')"
+        style="cursor: pointer";
+      />
+      <i class="fas fa-coffee"></i>
+      <i class="fa-thin fa-hippo"></i>
+    </p>
+    <hr/>
+  <div id="demo"><img src="../../images/1.jpg"></div>
+</body>
+</html>

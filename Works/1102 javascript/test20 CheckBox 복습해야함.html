@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Box</title>
+  <script>
+    'use strict'
+
+    let hobby = "";
+    function fCheck(){
+      if(document.getElementById("hobby1").Checked) {
+        hobby += document.getElementById("hobby1").value + "/"
+      }
+      if(document.getElementById("hobby2").Checked) {
+        hobby += document.getElementById("hobby2").value + "/"
+      }
+      if(document.getElementById("hobby3").Checked) {
+        hobby += document.getElementById("hobby3").value + "/"
+      }
+      if(document.getElementById("hobby4").Checked) {
+        hobby += document.getElementById("hobby4").value + "/"
+      }
+      if(document.getElementById("hobby5").Checked) {
+        hobby += document.getElementById("hobby5").value + "/"
+      }
+      if(document.getElementById("hobby6").Checked) {
+        hobby += document.getElementById("hobby6").value + "/"
+      }
+      demo.innerHTML = hobby + "<input type='button' value='지우기' onclick='fClear()'/>";
+    }
+    function fClear(){
+      document.getElementById("hobby1").Checked = false;
+      document.getElementById("hobby2").Checked = false;
+      document.getElementById("hobby3").Checked = false;
+      document.getElementById("hobby4").Checked = false;
+      document.getElementById("hobby5").Checked = false;
+      document.getElementById("hobby6").Checked = false;
+      demo.innerTHML = "";
+    }
+
+  </script>
+</head>
+<body>
+  <h2>Check Box 연습</h2>
+  <form name="myform" method="get" action="">  
+    <p><b>취미 :</b> 
+      <input type="CheckBox" name="hobby" id="hobby1" value="등산"/>등산 &nbsp;
+      <input type="CheckBox" name="hobby" id="hobby2" value="낚시"/>낚시 &nbsp;
+      <input type="CheckBox" name="hobby" id="hobby3" value="볼링"/>볼링 &nbsp;
+      <input type="CheckBox" name="hobby" id="hobby4" value="바둑"/>바둑 &nbsp;
+      <input type="CheckBox" name="hobby" id="hobby5" value="수영"/>수영 &nbsp;
+      <input type="CheckBox" name="hobby" id="hobby6" value="골프"/>골프 &nbsp;
+      <button type="button" onclick="fCheck()">출력</button>
+    </p>
+    <hr/>
+    <div id="demo"></div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>폼(양식)태그 연습</title>
+  </head>
+  <body>
+    <h2>Form태그 = 양식태그</h2>
+    <!-- 
+    <form name = "폼의 이름" method = "전송방식" action = "서버로 전송되는 파일명"> ~~~~ </form>
+    
+    method(전송 방식) : get방식 / post방식
+      - get : URL을 통해서 자료 전달
+      - post: HTTP의 Header의 정보를 함께 전달시켜주는 방식
+    -->
+    <h2>입력양식 연습</h2>
+    <form name = "myform" method = "get" action = "#">
+      <p>
+        <b>텍스트박스(Text box)</b><br/>
+        1_1.<label for = "irum1">성명</label> : <input type = "text" name = "irum1" id = "irum1" /><br/>
+        1_2.성명 : <input type = "text" name = "irum1" id = "irum2" size = "3" maxlenght = "3"/><br/>
+        1_3.성명 : <input type = "text" name = "irum1" id = "irum3" value = "홍길동"/><br/>
+        1_4.성명 : <input type = "text" name = "irum1" id = "irum4" placeholder = "성명을 입력하세요"</><br/>
+        1_5.성명 : <input type = "text" name = "irum1" id = "irum5" placeholder = "성명을 입력하세요" autofocus/><br/>
+      </p>
+      <p> 
+        2_1.<label for ="age1">나이</label> : <input type = "number" name = "age1" id = "age1"/><br/>
+        2_2.나이 : <input type = "number" name = "age2" id = "age2" value = "20" min = "2" max 40/><br/>
+        2_3.수량 : <input type = "number" name = "su" id = "su" value = "5" min = "5" max="100" step ="5
+        "/><br/>    
+      </p>
+      <p>
+        3.비밀번호 : <input type = "password" name = "pwd" id = "pwd" /
+      </p>
+      <p>
+        4.생일 : <input type = "date" name = "birthday" id = "birthday" />
+      </p>
+      <p>
+        5.창립일 : <input type = "date" name = "birthday" id = "birthday" value ="2022-10-31" readonly/><br/>
+      </p>
+      <p>
+        6.출근시간 : <input type = "time" name = "time1" id = "time1" value = "09:10" /><br/>
+        7.출근시간 : <input type = "time" name = "time2" id = "time2" value = "09:10" readonly /><br/>
+        8.출근시간 : <input type = "datetime-local" name = "time3" id = "time3"/><br/>
+        8.출근시간 : <input type = "datetime-local" name = "time3" id = "time3" value = "2022-11-05t15:30" />
+      </p>
+      <p>
+        - 라디오버튼(그룹처리후 사용한다. 기본선택 : Checked)<br/>
+        성별 : <!-- 아이디와 이름이 달라야함 
+         그룹화 이름같게 -->
+        <input type = "radio" name = "gender" id = "gender1" value = "male" checked/>남자
+        <input type = "radio" name = "gender" id = "gender2" value = "female"/>여자
+      </p>
+      <p>
+        - 체크박스(그룹처리후 사용한다. 초기값은 checked)<br/>
+        <input type = "checkbox" name = "hobby" id = "hobby1" value = "등산">등산
+        <input type = "checkbox" name = "hobby" id = "hobby2" value = "등산">등산
+        <input type = "checkbox" name = "hobby" id = "hobby3" value = "등산">등산
+        <input type = "checkbox" name = "hobby" id = "hobby4" value = "등산">등산
+        <input type = "checkbox" name = "hobby" id = "hobby5" value = "등산">등산
+        <input type = "checkbox" name = "hobby" id = "hobby6" value = "등산">등산
+      </p>
+      <p>
+        - 콤보박스(ComboBox) : 기본선택 selected<br/>
+        좋아하는 산 :
+        <select name = "mnt">
+        <option value = "백두산">백두산</option>
+        <option value = "속리산">속리산</option>
+        <option value = "한라산">한라산</option>
+        <option value = "지리산" selected>지리산</option>
+        <option value = "부모산">부모산</option>
+        </select>
+      </p><p>
+        - 리스트박스(ListBox) : 기본선택 selected multiple<br/>
+        좋아하는 산 :
+        <select name = "mnt" size = "5">
+        <option value = "백두산">백두산</option>
+        <option value = "속리산">속리산</option>
+        <option value = "한라산">한라산</option>
+        <option value = "지리산" selected>지리산</option>
+        <option value = "부모산">부모산</option>
+        <option value = "북한산">북한산</option>
+        <option value = "월악산">월악산</option>
+        <option value = "설악산">설악산</option>
+        <option value = "속리산">속리산</option>
+        <option value = "태백산">태백산</option>
+        </select>
+      </p>
+      <p>
+        - 메모 형식 = textarea<br/>
+        자기 소개
+        <textarea rows = "5" cols = "50" name = "contant" id = "contant" placeholder = "자기소개">성명 :</textarea>
+      </p>
+      <p>
+        색상선택 : <input type = "color" name = "color" />
+      </p>
+      <p>
+        메일주소 : <input type = "emile" name = "email" value = "healim5028@naver.com" />
+      </P>
+      <p>
+        검색기 : <input type = "search" name = "search" />
+      </P>
+      <p>
+        첨부파일 : <input type = "file" name = "file" />
+      </P>
+      <hr/>
+      <p>
+        - 옵션그룹<br/>
+        <select name = "class">
+         <optgroup label = "공과대학">
+            <option>컴퓨터 공학</option>
+            <option>토목 공학</option>
+            <option>건축 공학</option>
+            <option>기계 공학</option>
+         <optgroup label = "공과대학">
+            <option>사학과</option>
+            <option>철학과</option>
+            <option>어문학과</option>
+         </optgroup>
+        </select>
+      </p>
+      <p>
+        - 사용량(meter) : 전체 100%에서 사용된 양(여기서는 30%를 사용했다면?
+        <meter value = "30" min = "0" max = "100"> </meter>
+        - 사용량이 전체 200%에서 30%를 사용했다면?
+        <meter value = "30" min = "0" max = "200"> </meter>
+        - 최소 사용량은 50%이고, 최대사용량이 100%일때 전체사용량은 200%라고 가정하고, 현재 사용량이 130%라면?
+        <meter value = "130" min = "00" max = "200" row = "50" high = "100"> </meter>
+      </p>
+      <p>
+        - 범위 : range <br/>
+        소리크기1 : <input type = "range" name = "valumn" value = "30" min = "0" max = "100" /><br/>
+        소리크기2 : <input type = "range" name = "valumn"/><br/>
+        소리크기3 : <input type = "range" name = "valumn" value = "30" min = "0" max = "100" step = "20" /><br/>
+      </p>
+      <p>
+        - 진행상황 : progress<br/>
+        진행중 : <progress> </progress><br/>
+        진행후 10초 경과(100초기준) : <progress value = "10" max = "100"> </progress><br/>
+      </p>
+    </form>
+  </body>
+</html>

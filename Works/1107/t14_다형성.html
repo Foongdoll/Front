@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class(객체) 다형성사용예제</title>
+  <script src="t13.js"></script>
+  <script>
+    'use strict';
+
+    class ChildClass extends Member {}
+
+    let childClass = new ChildClass("홍길동",25,"빨강");
+    console.log("성명: " + childClass.name);
+    console.log("나이: " + childClass.age);
+    console.log("좋아하는색: " + childClass.color);
+  </script>
+</head>
+<body>
+  <h2>클래스 연습(다형성(overriding)예제)</h2>
+</body>
+</html>

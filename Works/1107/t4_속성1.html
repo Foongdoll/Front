@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>속성 연습</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'  
+
+    let font32 = () => {
+    document.getElementById("demo").style.fontSize='32px';
+    }
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>inline명령을 통한 글자 속성 연습</h2>
+    <p>
+      <button type="button" onclick="font32()" class="btn btn-danger">글자크기 2em(32px)</button>
+      <button type="button" onclick="document.getElementById('demo').style.fontSize='16px';" class="btn btn-success">글자크기 1em(16px)</button>
+      <button type="button" onclick="document.getElementById('demo').style.fontSize='8px';" class="btn btn-primary">글자크기 0.5em(8px)</button>
+    </p>
+  </div>
+  <div id="demo">자바스크립트명령으로 글자 크기를 변경합니다.</div>
+</body>
+</html>

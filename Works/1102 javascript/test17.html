@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test17.html</title>
+  <script>
+    'use strict'
+    let address;
+    function fCheck(){
+      address = document.getElementById("address").value;
+
+      if(address.trim() == ""){
+        alert("주소를 입력하세요");
+        document.getElementById("address").focus();
+      }
+      else {
+        // demo.innerText = address;
+        demo.innerHTML = address;
+      }
+      
+    }
+    // 폼 태그의 값은 폼 이름.이름.value;       
+    // 폼 태그가 아닐시엔 innerText: 있는 그대로를 보여준다
+    //                    innerHTML: HTML 코드를 쓰고 작동할때 쓴다.
+  </script>
+</head>
+<body>
+  <p>
+    이동할 주소를 입력 후 이동버튼을 클릭하면 입력된 주소가 가상(demo)에 출력되어, 그 주소를 클릭하면
+    새창으로 이동하도록 만드시오.
+  </p>
+  <hr/>
+  <form name="myform" method="get" action="">
+    <div>
+      이동할 주소 : <input type="text" name="address" id="address" placeholder="이동할 주소를 입력하세요">
+      <input type="button" value="확인" onclick="fCheck()">
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</body>
+</html>

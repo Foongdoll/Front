@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test3.html</title>
+  <style>
+    .item {
+      width: 100px;
+      height: 800px;
+      border: 1px solid blue;
+      margin: 10px;
+      color: #000;
+    }
+    .container {
+      height: 100vh; /* view port 100%로 설정 */
+      display: flex;  /* 플렉스 박스 설정을 알린다. */
+      /* flex-direction: row;  /* 플랙스박스의 배치(기본-행(row)), row, column(열방향), row-reverse(역방향 행), column-reverse(역방향 열) */
+      flex-flow: row nowrap;  /* 컨터이너의 아이템들을 한줄에 담을수 없을때 줄바꿈 처리유무를 결정? nowrap(기본:줄바꿈하지않음), wrap(줄바꿈), wrap-reverse(반대로 줄바꿈) */
+      
+    }
+    /* 각각의 개별항목에 따른 애용의 출력순서를 변경해보자. (폭의 비율은 1:2:1)*/
+    /* 글내용의 출력 순서는 2번 -> 3번 -> 1번 순으로 출력한다. */
+    .item:nth-child(1){
+      flex: 1;
+      text-align: center;
+      padding-top: 40px;
+      height: 160px;
+      align-self: flex-start; /* 위쪽 정렬 */
+      order: 3;
+    }
+    .item:nth-child(2){
+      flex: 2;
+      text-align: center;
+      align-self: flex-end; /* 아래쪽 정렬 */
+      order: 1;
+    }
+    .item:nth-child(3){
+      flex: 1;
+      text-align: center;
+      align-self: center; /* 수직 중앙 정렬 */
+      order: 2;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Flex(플랙스)는 Flexible Box, FlexBox라고 부름...
+    주로 레이아웃 배치 전용으로 고안됨.
+    float와 inline-Block등의 불편한점을 보강함.
+  -->
+  <div class="container"> <!-- '플렉스 컨테이너'라고 부른다. -->
+    <div class="item" style="background-color:#2274FF">1.안녕하세요</div>  
+    <div class="item" style="background-color:#FF7490">2.안녕하세요</div> 
+    <div class="item" style="background-color:#a5Cf95">3.안녕하세요</div>  
+    <!-- <div class="item" style="background-color:#95B5FF">4.안녕하세요</div>   
+    <div class="item" style="background-color:#9675C9">5.안녕하세요</div>   -->
+    
+  </div>
+</body>
+</html>
+
+
+
