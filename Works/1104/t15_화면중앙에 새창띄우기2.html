@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면중앙에 새창띄우기</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script>
+    'use strict'  
+
+    function newWin(){
+      let url = "t15_child.html";
+      let top = document.getElementById("wid").value;
+      let left = document.getElementById("he").value;
+      if(top < 300 || left <200){
+        alert("가로 세로 해상도의 최소크기는 가로 300 세로 200 입니다");
+        return
+      }
+
+      let x = (screen.width/2) - (top/2)
+      let y = (screen.height/2) - (left/2)
+      let opt = "width="+left+", height="+top+", left="+x+"px, top="+y+"px";
+      let windowname = "winname";
+
+      window.open(url, windowname, opt)
+    }
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>화면중앙에 새창띄우기(부모창)</h2>
+    <p>텍스트박스에 윈도우 가로크기와 세로크기를 입력받아서 <br/>
+      버튼을 클릭하면 화면중앙에 사용자가지정한 크기로 새창(t15_chile.html)을 띄우시오<br/>
+      단, 최소 창의 크기는 (300px * 200px)
+    </p>
+    <form name="myform">
+      <div>
+        윈도우 가로크기 : 
+        <input type="text" name="wid" id="wid" class="form-control">
+      </div>
+      <div>
+        윈도우 세로크기 : 
+        <input type="text" name="he" id="he" class="form-control">
+      </div>
+      <div>
+        중앙에 띄우기 :
+        <input type="button" value="새창띄우기" onclick="newWin()" class="form-control">
+      </div>
+    </form>
+    <hr/>
+    <pre>
+      새창에 사용되는 이름(name);
+        :_blank : 새창 ( 기본값 ), _parent : 부모프레임에 열린다. _top : 로드된 프레임셋을 다시대체함. _self:자신창에 띄운다(생략가능);
+      새창에 사용되는 옵션(option);
+        :width : 창의 폭
+        height : 창의 높이
+        left : x축 위치
+        top : y축 위치
+        fullscreen=(yes/no/auto) : 전체화면모드(지원x)
+        titlebar=(yes/no/auto) : 제목표시줄의 표시여부 결정
+        location=(yes/no/auto) : 주소표시줄의 출력여부를 결정
+        menubar=(yes/no/auto) : 메뉴표시줄의 표시여부를 결정
+        resizable=(yes/no/auto) : 창의 크기를 제어
+        scrollbar=(yes/no/auto) : 스크롤바의 표시 여부 결정
+        toolbar=(yes/no/auto) : 툴바(도구상자)의 표시 여부 결정
+    </pre>
+    <p><br/></p>
+</body>
+</html>

@@ -1,110 +1,89 @@
-'use strict'
+'use strict';
+
+// 오늘날짜를 전역변수로 생성...
+const today = new Date();
+const year = today.getFullYear();  // 연도 4자리
+const month = today.getMonth() + 1;   // 월(기존월보다 1자리 작다)
+const date = today.getDate();   // 일
+const hour = today.getHours();  // 시
+const minute = today.getMinutes(); // 분
+const second = today.getSeconds(); // 초
+const yymmdd = year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
 
 // 표준날짜 출력함수
-
-  let fCheck1 = () => {
-    let date1 = new Date();
-
-    document.getElementById("demo").innerHTML = date1
-  }
+function fCheck1() {
+  let date1 = new Date();
+  console.log("date1 : ", date1);
+  document.getElementById("demo").innerHTML = date1;
+}
 
 // 편집날짜 함수
-  const today = new Date();
-  const year  = today.getFullYear(); // 년도 4자리
-  const month = today.getMonth()+1;  // 월(기존월보다 1자리 적게온다)
-  const date  = today.getDate();
-  const hour  = today.getHours();
-  const minute= today.getMinutes();
-  const second= today.getSeconds();
+function fCheck2() {
+  let strDate = yymmdd;
+  demo.innerHTML = strDate;
+}
 
+// 쉬운날짜 함수
+function fCheck3() {
+  let str = "";
+  str += year + "년 ";
+  str += month + "월 ";
+  str += date + "일 ";
+  // 요일 : 0(일), 1(월), 2(화), 3(수), 4(목), 5(금), 6(토)
+  //str += today.getDay() + "요일";    // 요일 : getDat()
+  let week = ["일","월","화","수","목","금","토"];
+  str += week[today.getDay()] + "요일 ";
+  str += hour + "시 ";
+  str += minute + "분 ";
+  str += second + "초";
 
-  const yymmdd = year+"-"+month+"-"+date + " " + hour + ":" + minute + ":" + second;
+  let strDate = str;
+  demo.innerHTML = strDate;
+}
 
-  let fCheck2 = () => {
-    let strDate = yymmdd;
+// 시간출력 함수(elapsed Time:경과시간)
+function fCheck4() {
+  // let strTime = today.getMilliseconds();
 
-    demo.innerHTML = strDate;
-  }
+  // let startDate = new Date(2022, 11, 4);
+  // let lastDate = new Date(2022, 11, 5);
+  // let elapsedTime  = lastDate.getTime() - startDate;
 
-  let fCheck3 = () => {
-    let str = "";
+  let startDate = today.getTime();
+  let lastDate = new Date();
+  let elapsedTime  = lastDate.getTime() - today.getTime();
+  let strDate = elapsedTime / (60*60*24*1000);
+  demo.innerHTML = strDate;
+}
 
-    str += year + "년 "
-    str += month + "월 "
-    str += date + "일 "
-    // 요일 : 0부터 나온다 0부터 1 = 일요일 ~ 6 = 토요일 
-    let week = ["일","월","화","수","목","금","토"]
-    str += week[today.getDay()] + "요일 "; // 요일 : getDay();
-    str += hour + "시 "
-    str += minute + "분 "
-    str += second + "초"
-    
+// 해당월의 마지막일자꺼내기 함수
+function fCheck5() {
+  let year = document.getElementById("year").value;
+  let month = document.getElementById("month").value;
 
-    let strDate = str;
-    demo.innerHTML = strDate;
-  }
+  let str = new Date(year,month,0);   // new Date(년,월,일,시,분,초);
+  let strDate = str.getFullYear() + "-";
+  strDate += (str.getMonth() + 1) + "-";
+  strDate += str.getDate();
+  strDate = "해당월의 마지막 일자는? " + strDate;
+  demo.innerHTML = strDate;
+}
 
-  // 시간출력 함수
+// 오늘날짜형식에 맞춰서 출력(yyyy-mm-dd)
+function fCheck6() {
+  let strDate = year + "-" + month + "-" + date;
+  let fmtDate = strDate.split("-");
+  let yy = fmtDate[0];
+  let mm = ('0' + fmtDate[1]).slice(-2);    // 2월 --> 02월 : 02 --> 002
+  let dd = ('0' + fmtDate[2]).slice(-2)
+  strDate = yy + "-" + mm + "-" + dd;
 
-  let fCheck4 = () => {
-    // let strDate = today.getTime();
-    // let strTime = today.getMilliseconds();
-    let startDate = today.getTime();
-    let lastDate  = new Date();
-    let elapsedTime  = lastDate.getTime() - starDate.getTime();
-    let strDate   = elapsedTime / (60*60*1000);
-    demo.innerHTML = strDate;
+  demo.innerHTML = strDate;
+}
 
-  }
+// 선택된 년/월의 마지막 일짜를 날짜 형식에 맞춰서 출력(yyyy-mm-dd)
+function fCheck7() {
+  let strDate = year + "-" + month + "-" + date;
 
-
-  // 해당월의 마지막일자꺼내기 함수
-  let fCheck5 = () => {
-    let year2 = document.getElementById("year").value;
-    let month2 = document.getElementById("month").value;
-
-    let strDate = new Date(year2,month2,0); // new Date(년,월,일,시,분,초);
-    let strDate2 = "";
-    strDate2 += year2+"년 ";
-    strDate2 += month2+"월 ";
-    strDate2 += "해당월의 마지막 날짜는 "+strDate.getDate()+"일";
-
-    demo.innerHTML = strDate2;
-
-  }
-
-
-    let fCheck6 = () => {
-      let year2 = document.getElementById("year").value;
-      let month2 = document.getElementById("month").value;
-  
-      let strDate = new Date(year2,month2,0); // new Date(년,월,일,시,분,초);
-      let strDate2 = "";
-      strDate2 += year2+"년 ";
-      if(month2 < 10){
-        month2 = "0"+month2;
-      }
-      else month2
-      strDate2 += month2+"월 ";
-      strDate2 += "해당월의 마지막 날짜는 "+strDate.getDate()+"일";
-  
-      demo.innerHTML = strDate2;
-    }
-
-
-    let fCheck7 = () => {
-      let strDate;
-      let  month2;
-      let  date2;
-      if(month < 10){
-      month2 = "0"+month;
-      }
-
-      if(date < 10){
-        date2 = "0"+date;
-      }
-
-      strDate = year+"-"+month2+"-"+date2
-      demo.innerHTML = strDate; 
-
-    }
+  demo.innerHTML = strDate;
+}

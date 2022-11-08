@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>basic</title>
+  <title>트리거</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,16 +13,45 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
   <script>
     'use strict'  
+    let num1 = 0;
+    let num2 = 0;
+    let num = 0;
+
+    function tClick1(){
+      num1++;
+      if(num1 % 5 == 0){
+        num2++;
+        demo2.innerHTML = num2;
+        
+      }
+      
+      demo1.innerHTML = num1;
+    }
+    
+    function tClick2(){
+      num2++;
+      if(num2 % 10 == 0){
+        num1++
+        demo1.innerHTML = num1;
+      }
+      
+      demo2.innerHTML = num2;
+    }
+
 
   </script>
 </head>
 <body>
   <div class="container"> 
-    <h2></h2>
-    <p>
-      
-    </p>
+    <h2>트리거 연습</h2>
+      <form name="myform">    
+        <p>
+          <input type="button" value="트리거1" name="triger1" onclick="tClick1()" class="btn btn-primary"/>
+          <input type="button" value="트리거2" name="triger2" onclick="tClick2()" class="btn btn-danger"/>
+        </p>
+      </form>
     <hr/>
-  <div id="demo"></div>
+  demo1 :<div id="demo1"></div>
+  demo2 :<div id="demo2"></div>
 </body>
 </html>

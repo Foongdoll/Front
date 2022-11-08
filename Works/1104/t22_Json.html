@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON 방식</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script>
+    'use strict'  
+
+    const member = {
+      name:'홍길동',
+      age: 25,
+      color: 'white',
+      birthday: new Date(),
+      atom: () => {
+        console.log("성명 : "+member.name);
+      }
+    }
+    let json = JSON.stringify(member); //오브젝트를 제이슨으로 변환...
+    console.log(json);
+    const obj =JSON.parse(json); // 스트링으로 만든 JSON을 다시 Object로 변환한다.(parse)
+    console.log(obj);
+    console.log(member.atom());
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>웹을 통한 값의 전달방식</h2>
+    <pre style="font-weight: bolder;">
+      HTTP란?
+        Server와 Client 사이의 값들을 전송해주는 통신을 정의한 프로토콜
+        HTTP : Hyper Text Transfer Protocol
+        클라이언트가 서버에 요청(request)할수 있고, 서버는 클라이언트에게 응답(response)하게 한다.
+        
+        클라이언트가 서버에 요청해서 응답받아올때 비동기식을 통해서 값들을 받아오는 방식을 AJax라고 한다.
+
+        - AJAX : Asynchronous JavaScript And XML 
+        - XML  : HTML과 같은 마크업언어이다. 서버와 데이터를 주고받을때 사용되는 대표적인 어어로서,
+                  동기화 된 자료를 전송하게된다. 이때 XML은 불필요한 태그가 많이 전송되기에 가독성이 떨어진다.
+        - JSON : JavaScript Object Notation 으로 서버와의 전송에 필요한 데이터 포멧을 말한다.
+                  JSON바식은 모바일에서의 서버와 데이터 전송에도 주로 사용되고 있으며,
+                  프로그램의 종류나 플랫폼에 상관없이 사용할 수 있다.(예: C,C+,C++,Java,Python,PHP,코틀린,GO언어...);
+                  자바스크립트에서는 객체와 같이 '키(key):값(value)'으로 구성되어 처리된다.
+                  처리방식은 Object를 String 으로 직렬화(deserialize)해서 다시 Object로 변환해서 사용하게 한다.
+        ex1) 논리값을 JSON을 이용해서 스트링으로 변환?
+            let json = JSON.stringify(true);
+            console.log(json); // 결과 "true";
+        ex2) 배열을 JSON을 이용해서 이용해서 스트링으로 변환?
+                    
+            let json = JSON.stringify(['사과','apple']);
+            console.log(json); // 결과 ["사과","apple"];  무조건 "" 으로 씌워짐
+        ex3)  Object을 JSON을 이용해서 스트링으로 변환?
+        
+              const member = {
+                name:'홍길동',
+                age: 25,
+                color: 'white',
+                birthday: new Date(),
+                atom: () => {
+                  console.log("성명 : "+member.name);
+                }
+              }
+              let json = JSON.stringify(member); //오브젝트를 제이슨으로 변환...
+              console.log(json);
+              const obj =JSON.parse(json); // 스트링으로 만든 JSON을 다시 Object로 변환한다.(parse)
+              console.log(obj);
+              console.log(member.atom());
+    </pre>
+    <hr/>
+</body>
+</html>

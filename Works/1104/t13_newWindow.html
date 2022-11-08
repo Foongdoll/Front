@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>basic</title>
+  <title>newWindow.html</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,13 +14,21 @@
   <script>
     'use strict'  
 
+    function newWin(){
+      let url = "https://www.naver.com"
+      let windowname = "Naver"; // 생략가능 하지만 생략 안하는게 좋음
+      let opt = "width=800px, height=600px, top=800px, left=500px"
+      window.open(url, windowname, opt);
+    }
+
+
   </script>
 </head>
 <body>
   <div class="container"> 
-    <h2></h2>
+    <h2>새창띄우기 - 부모창</h2>
     <p>
-      
+      <input type="button" value="새창띄우기" onclick="newWin()">
     </p>
     <hr/>
   <div id="demo"></div>

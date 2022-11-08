@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    let num = 0;
+    let timeCheck;
+
+    function numTime(sel) {
+      clearTimeout(timeCheck);
+
+      if(sel == 'plus') {
+        num++;
+        demo.innerHTML = "<b>"+ num + "</b>";
+        timeCheck = setTimeout("numTime('plus')", 1000);   //  setTime("함수명",지연시간)
+      }
+      else if(sel == 'minus') {
+        num--;
+        demo.innerHTML = "<b>"+ num + "</b>";
+        timeCheck = setTimeout("numTime('minus')", 1000);   //  setTime("함수명",지연시간)
+      }
+      else {
+        demo.innerHTML = "<b>"+ num + "</b> 정지합니다.";
+        clearTimeout(timeCheck);
+      }
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>setTimeout 함수</h2>
+  <p>
+    setTime("함수명('매개값')",지연시간) : 지연시간(1/1000 초) 경과후, 지정된 함수를 호출한다.(매개값을 넘길때는 함수명을 따옴표처리한다)<br/>
+    만약 지연시간 이후, 다른함수를 호출하지않고 자신의 함수를 다시 부르게된다면, 기존 상황을 clearTimeout() 시켜준호 다시 수행처리해야한다.<br/>
+    정지시키고자 한다면 현재 상황을 변수에 담은후, clearTimeout() 함수를 이용해서 현재 상황을 중지시켜준다.
+  </p>
+  <p>
+    <input type="button" value="증가" onclick="numTime('plus')"/>
+    <input type="button" value="감소" onclick="numTime('minus')"/>
+    <input type="button" value="정지" onclick="numTime('stop')"/>
+  </p>
+  <hr/>
+  <div id="demo">0</div>
+</div>
+<p><br/></p>
+</body>
+</html>

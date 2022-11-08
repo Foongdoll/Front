@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1108</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="container"> 
+    <h2>1108숙제랍스타~~</h2>
+    <p>두 수A,B를 입력받고 A~B사이의 난수 출력 후 C를 입력, C가 난수보다 작으면 UP 메세지 크면 DOWN 메세지 출력 키보드 화살표로 
+      C의 값 수정 (+1 -1)하여 난수와 C가 같아지면 딩동댕 메세지 출력
+    </p>
+      <div>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text font-weight-bold text text-primary">범위 시작하는 수</span>
+            </div>
+            <input type="text"  name="start" id="start" class="form-control">
+          </div>
+        </form>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text font-weight-bold text text-danger">범위 끝나는 수</span>
+            </div>
+            <input type="text"  name="end" id="end" class="form-control">
+          </div>
+        </form>
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text font-weight-bold text text-success">내가 입력한 수</span>
+            </div>
+            <input type="text"  name="input" id="input" class="form-control">
+          </div>
+        </form>
+        <div>
+          <h2>게임 시작 누르면 난수 출력 숫자 맞추기 시작</h2>
+          <input type="button" value="게임시작" onclick="gstart()" class="btn btn-info form-control">
+        </div>
+        <input type="button" value="비교" onclick="bigyu()" class="btn btn-info form-control mt-2">
+      </div>
+    <hr/>
+  <div id="demo1" class="text text-secondary"></div>
+  <div id="demo2" class="form-control text text-secondary mt-7"></div>
+    <script>
+      'use strict'  
+      let input = 0;
+      let str = "";
+      let nansu = "";
+      function gstart() {
+        let stsu = document.getElementById("start").value;
+        let ensu = document.getElementById("end").value;
+        input = document.getElementById("input").value;
+        ensu = ensu - stsu +1;
+        nansu = Math.floor((Math.random()*ensu)+stsu);
+      }      
+      // "<div class='alert alert-warning' role='alert'>틀렸습니당~</div>"
+        function bigyu() {
+          if(input != nansu && input < nansu){
+          // alert("UP !! ")
+          demo1.innerHTML = "<div class='alert alert-warning' role='alert'>틀렸습니당~ UP !!</div>";
+          }
+          else if(input != nansu && input > nansu){
+          // alert("DOWN !! ")
+          demo1.innerHTML = "<div class='alert alert-warning' role='alert'>틀렸습니당~DOWN !!</div>";
+          }
+          else if(input == nansu){
+            // alert("DING~ DONG~ DAENG~")
+            demo1.innerHTML = "<div class='alert alert-success' role='alert'>맞았습니당~</div>";
+        }
+        }
+
+        function keyevent(e){
+          if("keydown" == e.type){
+            str = e.which;
+            // return false;
+            if(str == 38){
+              input++;
+              demo2.innerHTML = input;
+            }
+            else if(str == 40){
+              input--;
+              demo2.innerHTML = input;
+            }
+0          }
+        }
+
+        document.onkeydown = keyevent;
+  
+    </script>
+</body>
+</html>

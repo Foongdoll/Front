@@ -34,24 +34,24 @@ function compareDate() {
   document.getElementById("demo").innerHTML = result;
 }
 
-function compareDate2() {
-  let start = document.getElementById("startDate").value;
-  let end = document.getElementById("endDate").value;
-
-  const startDate = new Date(start);
-  const endDate = new Date(end);
-
-  let elapsedTime = endDate.getTime() - startDate.getTime();
-  let strDate = elapsedTime / (60*60*24*1000); // 날(day)수로 변경
-
-  strDate = strDate.toFixed(0);
-
-  document.getElementById("demo").innerHTML = strDate;
-}
-
 // === (완전일치(타입)) 
 function isSameDay(startDate, endDate) {
   return  startDate.getFullYear() === endDate.getFullYear() &&
           startDate.getMonth() === endDate.getMonth() &&
           startDate.getDate() === endDate.getDate();
+}
+
+function compareDate2() {
+  let start = document.getElementById("startDate").value;
+  let end = document.getElementById("endDate").value;
+
+  const startDate = new Date(start);  // '2022-2-5'  년,월,일
+  const endDate = new Date(end);
+
+  // 날짜형식데이터를 시간(1/1000초)로 바꿔서 연산처리한다.
+  let elapsedTime  = endDate.getTime() - startDate.getTime();
+  let strDate = elapsedTime / (60*60*24*1000); // 날(day)수로 변경
+  strDate = strDate.toFixed(0);
+
+  document.getElementById("demo").innerHTML = strDate;
 }

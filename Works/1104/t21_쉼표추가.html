@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쉼표추가</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script>
+    'use strict'  
+    let num;
+    function commaInput(){
+      num = myform.num.value;
+      if(num == "" || isNaN(num)){
+        alert("숫자를 입력하세요.");
+        myform.num.select();
+        myform.num.focus();
+        return false;
+      }
+
+      //숫자값만 입력되었다면 comma() 함수 출력
+      let numstr = comma(num);
+      demo.innerHTML = numstr;
+    }
+    
+    // 쉼표표시하기 함수1(1234567 => 1,234,567)
+    function comma(num){
+      let numLen = num.length;
+      let numstr = "";
+      let numpoint = numLen % 3;
+      
+      numstr = num.substring(0, numpoint);
+      while(numpoint < numLen){
+        if(numstr != "")  numstr = numstr + ",";
+        numstr += num.substring(numpoint,numpoint+3);
+        numpoint += 3;
+      }
+      return numstr;
+    }
+    
+    // 쉼표표시하기 함수1(1234567 => 1,234,567)
+    
+    function commaInput2(){
+      num = parseInt(myform.num.value);
+      if(num == "" || isNaN(num)){
+        alert("숫자를 입력하세요.");
+        myform.num.select();
+        myform.num.focus();
+        return false;
+      }
+
+      //숫자값만 입력되었다면 comma() 함수 출력
+      let numstr = numberWithCommas(num);
+      demo.innerHTML = numstr;
+    }
+
+    function numberWithCommas(num){
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+    }
+    
+
+
+    function commaInput3(){
+      num = myform.num.value;
+
+      let numstr = numberWithCommas2(num);
+      demo.innerHTML = numstr;
+      }
+
+      //숫자값만 입력되었다면 comma() 함수 출력
+
+    function numberWithCommas2(num){
+      return num.toString().replace(/\D+/g,"");
+    }
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>쉼표추가</h2>
+    <form name="myform">
+      <p>
+        숫자 : <input type="text" name="num" id="num" autofocus />
+      </p>
+      <p>
+        <input type="button" value="쉼표추가" onclick="commaInput()" class="btn btn-warning" />
+        <input type="button" value="쉼표추가" onclick="commaInput2()" class="btn btn-warning" />
+        <input type="button" value="숫자만 출력" onclick="commaInput3()" class="btn btn-warning" />
+        <input type="reset" value="다시입력" class="btn btn-danger"/>
+      </p>
+    </form>
+    <hr/>
+  <div id="demo"></div>
+</body>
+</html>

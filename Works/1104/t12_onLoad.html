@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>basic</title>
+  <title>onLoad 이벤트 처리</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,15 +13,29 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
   <script>
     'use strict'  
+    
+    // alert("1.안녕하세요!!!");
 
-  </script>
+    function onLoadFunc(){
+      alert("2.한영합니다.");
+    }
+
+
+    function onunLoadFunc(){ // 사이트를 떠날때 
+      alert("3.안녕히가세요.");
+      // location.href = "https://www.naver.com";
+
+
+    }
+
+
+    </script>
 </head>
-<body>
+<body onload="onLoadFunc()" onunload="onunLoadFunc()">
   <div class="container"> 
-    <h2></h2>
-    <p>
-      
-    </p>
+    <h2>onLoad이벤트처리</h2>
+      <input type="button" value="onLoad호출" onclick="onLoadFunc()" class="btn btn-danger" />
+      <input type="button" value="onunLoad호출" onclick="onunLoadFunc()" class="btn btn-danger" />
     <hr/>
   <div id="demo"></div>
 </body>

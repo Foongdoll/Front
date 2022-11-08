@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인터넷 시계</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .container{
+      font-size: 3em;
+    }
+    
+    #demo{
+      border: 2px solid pink;
+    }
+    
+    </style>
+</head>
+<body>
+  <div class="container"> 
+    <h2>인터넷 시계</h2>
+    <p>
+    </p>
+    <hr />
+    <div id="demo"></div>
+    <hr />
+    <script>
+      'use strict'  
+      let statusTime;
+      let nowTime;
+      let hh1;
+      let mm1;
+      let ss1;
+      let hh2;
+      let mm2;
+      let ss2;
+
+      function clock(){
+        let today = new Date();
+        let hour = today.getHours();
+        let minutes = today.getMinutes();
+        let seconds = today.getSeconds();
+        
+        if(hour < 10 || minutes < 10 || seconds < 10){
+          hh1 = ('0' + hour).slice(0,1);
+          mm1 = ('0' + minutes).slice(0,1);
+          ss1 = ('0' + seconds).slice(0,1);
+        }
+        else{
+          hh1 = ('0' + hour).slice(1,2);
+          mm1 = ('0' + minutes).slice(1,2);
+          ss1 = ('0' + seconds).slice(1,2);
+        }
+        
+        if(hour < 10 || minutes < 10 || seconds < 10){
+          hh2 = ('0' + hour).slice(1);
+          mm2 = ('0' + minutes).slice(1);
+          ss2 = ('0' + seconds).slice(1);
+        }
+        else{
+          hh2 = ('0' + hour).slice(2);
+          mm2 = ('0' + minutes).slice(2);
+          ss2 = ('0' + seconds).slice(2);
+        }
+
+        let hh = "<img src='../../images/숫자폰트/"+hh1+".jpg'/><img src='../../images/숫자폰트/"+hh2+".jpg'/>";
+        let mm = "<img src='../../images/숫자폰트/"+mm1+".jpg'/><img src='../../images/숫자폰트/"+mm2+".jpg'/>";
+        let ss = "<img src='../../images/숫자폰트/"+ss1+".jpg'/><img src='../../images/숫자폰트/"+ss2+".jpg'/>";
+
+        
+
+
+          demo.innerHTML = hh+" : "+mm+" : "+ss;
+        
+
+      }
+
+      setInterval(clock,1000);
+
+
+    </script>
+</body>
+</html>

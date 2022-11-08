@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>basic</title>
+  <title>해상도 체크</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,13 +14,27 @@
   <script>
     'use strict'  
 
+    let deviceCheck = () => {
+      let str = "";
+
+      str += "화면 해상도의 가로 크기 : "+screen.width + "px<br/>";
+      str += "화면 해상도의 세로 크기 : "+screen.height + "px<br/>";
+      str += "사용자 작업영역의 가로 크기 : "+screen.availWidth + "px<br/>";
+      str += "사용자 작업영역의 세로 크기 : "+screen.availHeight + "px<br/>";
+      str += "표현 가능 색상수 : "+Math.pow(2,screen.colorDepth) + "개<br/>";
+      str += "픽셀당 색상수 : "+Math.pow(2,screen.pixelDepth) + "개<br/>";
+
+      demo.innerHTML = str;
+
+    }
+
   </script>
 </head>
 <body>
   <div class="container"> 
-    <h2></h2>
+    <h2>screen객체를 이용한 모니터(Device)의 해상도 알아오기</h2>
     <p>
-      
+      <input type="button" value="해상도" onclick="deviceCheck()" class="btn btn-primary mt-2"/>
     </p>
     <hr/>
   <div id="demo"></div>

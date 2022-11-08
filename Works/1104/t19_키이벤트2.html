@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>키 이벤트 처리</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script>
+    'use strict'  
+
+    function KeyboardEvent(e){
+      let str = "";
+      str = "현재 발생된 이벤트는 "+e.type+"<br/>";
+      switch(e.type){
+        // case "keypress" : 
+        // str += "키값 : "+e.which + "<br/>";
+        //       break;
+        case "keydown" : 
+        str += "키값 : "+e.which + "<br/>";
+              break;
+        case "mousedown" : 
+        str += "마우스를 클릭하셨습니다."
+              break;
+        case "click" : 
+        str += "마우스를 클릭하셨습니다."
+              break;
+        case "dblclick" : 
+        str += "마우스를 더블 클릭하셨습니다."
+              break;
+        default:
+          str += "아무런 동작이없습니다."
+      }
+
+      demo.innerHTML = str;
+    }
+
+    document.onclick = KeyboardEvent;
+    document.ondblclick = KeyboardEvent;
+    document.onmousedown = KeyboardEvent;
+    // document.onkeypress = KeyboardEvent;
+    document.onkeydown = KeyboardEvent;
+    
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>키보드 이벤트 처리</h2>
+    <p>키보다 입력하면 키값을 알려줍니다.</p>
+    <p><input type="button" value="새로고침" onclick="location.reload" class="btn btn-success"/></p>
+    <hr/>
+  <div id="demo"></div>
+</body>
+</html>
