@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'  
+
+    $(function(){
+      // $('div span').css('color','orange');
+      $('div span:first').css('color','orange'); // first 는 최초 1개만 적용
+
+      $('div span:first-child').css({'color':'orange','fontSize':'20px'}); // div 별로 그룹을 묶고 그중 첫번째를 꺼내려면 
+                                                                           // div 속 span의 첫번째 자식들 span:first-child로하면 각 div의 첫번쨰 모두 적용됨
+      $('div span:only-child').css({'textDecoration':'underline','fontSize':'40px'}); // 오직 본인만 있는 그룹에 적용
+
+      $('div span:only-of-type').css({'textDecoration':'underline','fontSize':'10px'}); // 태크가 한개인것만 적용
+      
+  });
+
+  </script>
+</head>
+<body>
+  <div>
+    <span>1짜장면</span>
+    <span>1짬뽕</span>
+    <span>1탕수육</span>
+    <span>1볶음밥</span>
+    <span>1팔보채</span>
+  </div> 
+    <hr/>
+  <div>
+    <b>2짜장면</b>
+    <b>2짬뽕</b>
+    <b>2탕수육</b>
+    <b>2볶음밥</b>
+    <b>2팔보채</b>
+  </div> 
+    <hr/>
+  <div>
+    <span>3짜장면</span>
+  </div> 
+    <hr/>
+  <div>
+    <span>4짜장면</span>
+    <span>4짬뽕</span>
+    <span>4탕수육</span>
+    <b>4볶음밥</b>
+    <span>4팔보채</span>
+  </div> 
+    <hr/>
+  <div>
+    <b>5짜장면</b>
+    <b>5짬뽕</b>
+    <b>5탕수육</ㅠ>
+    <b>5볶음밥</b>
+    <span>5팔보채</span>
+  </div> 
+    <hr/>
+</body>
+</html>

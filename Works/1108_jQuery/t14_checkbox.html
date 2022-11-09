@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CheckBox</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'  
+
+    $(function(){
+
+      $('.container input[name="choiceBtn1"]').click(function(i, item){
+        let fruitsarr = [];
+        // each()
+        $('.container input[class="fruit"]').each(function(i, item){
+            if($(item).is(':checked')){
+              $(item).css('outline','1px solid red');
+              fruitsarr.push($(item).val());
+            }
+            else {
+              $(item).css('outline','');
+            }
+        });  
+        $('#demo').html(fruitsarr.join('/'))
+        
+
+      });
+      // map
+
+      $('.container input[name="choiceBtn2"]').click(function(i, item){
+        let fruitsarr = [];
+        // map()
+        let fruitsarr2 = $('.container input[class="fruit"]').map(function(i, item){
+            if($(item).is(':checked'))
+            return $(item).val();
+        }).get().join('/');
+        $('#demo').html(fruitsarr2)
+
+
+      });
+
+    });
+
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <h2>좋아하는 과일은</h2>
+    <form name="myform">
+      <p>
+        <input type="checkbox" name="fruit" value="사과" class="fruit"/>1.사과 &nbsp;
+        <input type="checkbox" name="fruit" value="배" class="fruit"/>2.배 &nbsp;
+        <input type="checkbox" name="fruit" value="바나나" class="fruit"/>3.바나나 &nbsp;
+        <input type="checkbox" name="fruit" value="복숭아" class="fruit"/>4.복숭아 &nbsp;
+        <input type="checkbox" name="fruit" value="자몽" class="fruit"/>5.자몽 &nbsp;
+        <input type="checkbox" name="fruit" value="망고" class="fruit"/>6.망고 &nbsp;
+        <input type="checkbox" name="fruit" value="포도" class="fruit"/>7.포도 &nbsp;
+        <input type="checkbox" name="fruit" value="자두" class="fruit"/>8.자두
+      </p>
+      <p>
+      <input type="button" value="선택 1" name="choiceBtn1" class="btn btn-primary"/>
+      <input type="button" value="선택 2" name="choiceBtn2" class="btn btn-danger"/>
+      </p>
+    </form>
+    <hr/>
+  <div id="demo"></div>
+</body>
+</html>

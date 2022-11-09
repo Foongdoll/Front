@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예제</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'  
+    $(function(){
+      // DOM을 두번 검색 처리..
+      $('.container div').css('color','lightgray');
+      $('.container div.test2').css('color','orange');
+
+      // DOM에서는 1번검색후, 그 결과에 대하여 다시 검색처리....(filter)
+      $('#two div').css('color','gray')
+      .filter(".test2").css('color','orange')
+      .filter('.main').css({'color':'red','fontSize':'3em'});
+
+      // 결과를 변수에 담아서 filter처리해보자.
+      let three = $('#three div').css('color','pink');
+      
+      let mbc = three.filter('.test2').css('color','blue');
+      three.filter('.main').css('backgroundColor','skyblue');
+
+    });
+
+  </script>
+</head>
+<body>
+  <div class="container"> 
+    <div id="one">    
+    <h2>진달래 꽃1</h2>
+    <p>작가 : 김소월</p>
+    <div id="a">1연</div>
+    <div>나보기가 <span class="test">역겨워</span> 가실때에는 </div>
+    <div>말없이 고이 보내드리오리다.</div>
+    <div id="a">2연</div>
+    <div>영변에 약산 진달래꽃</div>
+    <div class="test2 main">아름따다 <h4>가실길</h4>에 뿌리오리다.</div>
+    <div id="a">3연</div>
+    <div id="b">가시는 걸음걸음 놓인 그꽃을</div>
+    <div>사뿐이 <span class="test">즈려밟고</span>  가시옵소서</div>
+    <div id="a">4연</div>
+    <div>나보기가 <span class="main">역겨워</span> 가실때에는</div>
+    <div>죽어도 <span class="test">아니눈물</span> 흘리오리다.</div>
+    <div>The End</div>
+    </div>
+    <hr/>
+    <div id="two">    
+      <h2>진달래 꽃2</h2>
+      <p>작가 : 김소월</p>
+      <div id="a">1연</div>
+      <div>나보기가 <span class="test">역겨워</span> 가실때에는 </div>
+      <div>말없이 고이 보내드리오리다.</div>
+      <div id="a">2연</div>
+      <div>영변에 약산 진달래꽃</div>
+      <div class="test2 main">아름따다 <h4>가실길</h4>에 뿌리오리다.</div>
+      <div id="a">3연</div>
+      <div id="b">가시는 걸음걸음 놓인 그꽃을</div>
+      <div>사뿐이 <span class="test">즈려밟고</span>  가시옵소서</div>
+      <div id="a">4연</div>
+      <div>나보기가 <span class="main">역겨워</span> 가실때에는</div>
+      <div>죽어도 <span class="test">아니눈물</span> 흘리오리다.</div>
+      <div>The End</div>
+    </div>
+    <hr/>
+    <div id="three">    
+    <h2>진달래 꽃3</h2>
+    <p>작가 : 김소월</p>
+    <div id="a">1연</div>
+    <div>나보기가 <span class="test">역겨워</span> 가실때에는 </div>
+    <div>말없이 고이 보내드리오리다.</div>
+    <div id="a">2연</div>
+    <div>영변에 약산 진달래꽃</div>
+    <div class="test2 main">아름따다 <h4>가실길</h4>에 뿌리오리다.</div>
+    <div id="a">3연</div>
+    <div id="b">가시는 걸음걸음 놓인 그꽃을</div>
+    <div>사뿐이 <span class="test">즈려밟고</span>  가시옵소서</div>
+    <div id="a">4연</div>
+    <div>나보기가 <span class="main">역겨워</span> 가실때에는</div>
+    <div>죽어도 <span class="test">아니눈물</span> 흘리오리다.</div>
+    <div>The End</div>
+    <hr/>
+    </div>
+
+
+</body>
+</html>

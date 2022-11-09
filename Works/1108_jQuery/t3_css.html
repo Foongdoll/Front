@@ -11,32 +11,49 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
     'use strict'  
 
-    window.onload = function() {
-      let costVar = document.getElementById("cost");
-      let suVar = document.getElementById("su");
-      let demo = document.getElementById("demo");
-      let totalBtn = document.getElementById("totalBtn");
-      
-      totalBtn.addEventListener('click',function() {
-        let cost = Number(costVar.value);
-        let su = Number(suVar.value);
 
-        if(isNaN(cost) || isNaN(su)){
-          alert("숫자만 입력하세요");
-          return false;
-        }
-        let res = cost * su;
-        demo.innerHTML = res;
-      });
-
-    }
+    // jQuery => $ 표시
+    // 사용법 : $("설렉터").이벤트(function() {}); 
     
+      $(document).ready(function() {
+        // $("#demo").css("color",'red');
+        // $("#demo").css("fontSize","2em");
+        $("#demo").css({"color":"red","fontSize":"3em"});
+
+        
+        $("#totalBtn").click(function() {
+          let cost = $("#cost").val();
+          let su = $("#su").val();
+          
+          if(isNaN(cost) || isNaN(su)){
+            alert("숫자만 입력하세요");
+            // costVar.select();
+            $("#cost").select();
+            // costVar.focus();
+            $("costVar").focus();
+            return;
+          }
+  
+          let res = cost * su;
+          demo.innerHTML = res;
+        });
+      });
 
 
   </script>
+  <style>
+    /* #demo{
+      color: red;
+      font-size: 2em;
+    } */
+    
+
+
+  </style>
 </head>
 <body>
   <div class="container"> 
