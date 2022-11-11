@@ -11,17 +11,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     'use strict'  
+    let chai;
     $(function(){
       let boxheight    = $('#intro').height();
       let scrollheight = $('#intro').prop('scrollHeight');
       let scrollTop    = $('#intro').scrollTop();
 
-      let chai = scrollheight - boxheight;
+      chai = scrollheight - boxheight;
       $('#intro').scrollTop(chai);
-
-
-
+      
+      $('#btnEnd').click(function(){
+        $('#intro').scrollTop(chai);
+      })
+      
     })
+
+    function lastCheck(){
+      alert("lastCheck()함수를 호출하셨습니다.")
+    }
+
   </script>
   <style>
     #intro {
@@ -37,7 +45,7 @@
 </head>
 <body>
   <div class="container"> 
-    <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btn btn-secondary mt-5"/></div>
+    <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" onclick="lastCheck()" class="btn btn-secondary mt-5"/></div>
     <h2>자기 소개</h2>
     <div id="intro">
       <div>1.자기소개를 작성합니다</div>

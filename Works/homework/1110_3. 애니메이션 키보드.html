@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테이블속성</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+    $(function(){
+      let keycode = 0;
+      let y = 0;
+      let x = 0;
+
+      
+      function KeyboardEvent(e){
+        keycode = e.which  
+        if(keycode == 37){
+          if(x <= -2){
+            alert("더 이상 왼쪽으로 가실 수 없습니다")
+            return;
+          }
+          x--;
+          $('#img1').animate({"marginLeft":(x*50)+"px", "width":"100px", "height":"100px"},
+            500,      // 지연시간
+            "linear",     // 빠른정도 : normal / linear / easing
+            function(){
+              $(this).css("border","1px solid red");
+            }
+          ); 
+        }
+        else if(keycode == 38){
+          if(y <= -1){
+            alert("더 이상 올라가실수없습니다")
+            return false;
+          }
+          y--;
+          $('#img1').animate({marginTop: (y*50)+"px"})
+        }
+        else if(keycode == 39){
+          if(x >= 18){
+            alert("더 이상 오른쪽으로 가실 수 없습니다")
+            return;
+          }
+          x++;
+          $('#img1').animate({"marginLeft":(x*50)+"px", "width":"100px", "height":"100px"},
+          500,      // 지연시간
+          "linear",     // 빠른정도 : normal / linear / easing
+          function(){
+            $(this).css("border","1px solid red");
+          }
+          ); 
+        }
+        else if(keycode == 40){
+          if(y >= 12){
+            alert("더 이상 내려갈수없습니다")
+            return false;
+          }
+          y++;
+          $('#img1').animate({marginTop: (y*50)+"px"})
+        }
+      }
+      
+      
+      // $('#moveRight').click(function(){
+      //   if(x >= 18){
+      //     alert("더 이상 오른쪽으로 가실 수 없습니다")
+      //     return;
+      //   }
+      //   x++;
+      //   $('#img1').animate({"marginLeft":(x*50)+"px", "width":"100px", "height":"100px"},
+      //   500,      // 지연시간
+      //   "linear",     // 빠른정도 : normal / linear / easing
+      //   function(){
+      //     $(this).css("border","1px solid red");
+      //   }
+      //   ); 
+      // });
+      
+        // $('#moveLeft').click(function(){
+        //   if(x <= -2){
+        //     alert("더 이상 왼쪽으로 가실 수 없습니다")
+        //     return;
+        //   }
+        //   x--;
+        //   $('#img1').animate({"marginLeft":(x*50)+"px", "width":"100px", "height":"100px"},
+        //     500,      // 지연시간
+        //     "linear",     // 빠른정도 : normal / linear / easing
+        //     function(){
+        //       $(this).css("border","1px solid red");
+        //     }
+        //   ); 
+        // });
+
+        // $('#moveDown').click(function(){
+        //   if(y >= 12){
+        //     alert("더 이상 내려갈수없습니다")
+        //     return false;
+        //   }
+        //   y++;
+        //   $('#img1').animate({marginTop: (y*50)+"px"})
+        // });
+
+        // $('#moveUp').click(function(){
+        //   if(y <= -1){
+        //     alert("더 이상 올라가실수없습니다")
+        //     return false;
+        //   }
+        //   y--;
+        //   $('#img1').animate({marginTop: (y*50)+"px"})
+        // });
+
+      document.onkeyup = KeyboardEvent
+    });
+  </script>
+  <style>
+    
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>Animation 연습</h2>
+  <hr/>
+  <button type="button" name="moveLeft" id="moveLeft" class="btn-sm btn-primary">왼쪽이동</button>
+  <button type="button" name="moveRight" id="moveRight" class="btn-sm btn-primary">오른쪽이동</button>
+  <button type="button" name="moveLeft" id="moveUp" class="btn-sm btn-primary">위쪽이동</button>
+  <button type="button" name="moveRight" id="moveDown" class="btn-sm btn-primary">아래쪽이동</button>
+  <br/><hr/><br/>
+  <div>
+    <img src="../../images/2.jpg" width="100px" height="100px" id="img1"/>
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

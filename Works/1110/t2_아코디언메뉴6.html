@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function(){
+      $('#acc > .content').hide();  // 초기화면에서 부메뉴는 사라지게한다.
+
+      // 메뉴에 마우스를 over시키면 부메뉴만 열린다.
+      $('#acc > .menu').hover(function(){
+        $(this).next().stop().show(300);
+      });
+
+      // 닫기 기능 추가(마지막 주메뉴에서 마지막 주메뉴의 전으로 올라올때 부메뉴들 감추기)
+      $('div.menu3').hover(function(){
+        $('div.content4').stop().hide(200);
+      });
+      $('div.menu2').hover(function(){
+        $('div.content3').stop().hide(200);
+      });
+      $('div.menu1').hover(function(){
+        $('div.content2').stop().hide(200);
+      });
+
+      // 타이틀을 누르면 부메뉴를 닫히게한다.
+      $('#title').click(function(){
+        $('#acc > .content').hide();
+      });
+    });
+  </script>
+  <style>
+    div.accordion {
+      width: 300px;
+    }
+    div.menu, div.content {
+      border: 1px solid gray;
+      text-align: center;
+      cursor: pointer;
+    }
+    div.menu {
+      padding: 5px;
+      background-color: blueviolet;
+      color: white;
+
+    }
+    div.content {
+      margin: 0px;
+      padding: 0px;
+      border: 0px 1px solid red;
+    }
+    .content a {
+      display: block;
+      padding: 5px;
+      text-decoration: none;
+    }
+    .content a:hover{
+      display: block;
+      background-color: green;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="card-body accordion" id="acc">
+  <h3 id="title">아코디언 UI</h3>
+  <div class="menu menu1">주메뉴1</div>
+  <div class="content content1">
+    <a href="#">서브메뉴1</a>
+    <a href="#">서브메뉴2</a>
+    <a href="#">서브메뉴3</a>
+    <a href="#">서브메뉴4</a>
+    <a href="#">서브메뉴5</a>
+  </div>
+  <div class="menu menu2">주메뉴2</div>
+  <div class="content content2">
+    <a href="#">서브메뉴1</a>
+    <a href="#">서브메뉴2</a>
+    <a href="#">서브메뉴3</a>
+    <a href="#">서브메뉴4</a>
+  </div>
+  <div class="menu menu3">주메뉴3</div>
+  <div class="content content3">
+    <a href="#">서브메뉴1</a>
+    <a href="#">서브메뉴2</a>
+    <a href="#">서브메뉴3</a>
+  </div>
+  <div class="menu menu4">주메뉴4</div>
+  <div class="content content4">
+    <a href="#">서브메뉴1</a>
+    <a href="#">서브메뉴2</a>
+    <a href="#">서브메뉴3</a>
+  </div>
+  <hr/>
+  <div id="demo">
+    아코디언 메뉴를 jQuery로 만들어봅니다.<br/>
+    jQuery의 플러그인으로도 사용할 수 있는 아코디언 메뉴를 코드로 간단히 만들어봅니다.
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

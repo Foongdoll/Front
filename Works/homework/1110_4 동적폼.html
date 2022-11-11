@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적폼 : 상품 장바구니</title>
+</head>
+<body>
+  <form name="myform">
+    <table>
+      <tr>
+        <td>
+          <input type="button" value="상품추가" onclick="insRow()"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table id="addTable" width="400px">
+            <tr>
+              <td>
+                단가:<input type="text" name="addText1" style="width:60px; height:20px; "/>
+                수량:<input type="text" name="addText2" style="width:60px; height:20px; "/>
+                금액:<input type="text" name="result" readonly style="width:60px; height:20px;"/>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <table width="400px">
+      <tr>
+        <td style="text-align:center">
+          <input type="button" value="확인" onclick="fChcek()"/>
+          <input type="reset" value="다시입력"/>
+          <input type="button" value="초기화" onclick="location.reload()"/>
+        </td>
+      </tr>
+      모든 상품의 총 가격 :<div id="demo"></div>
+    </table>
+  </form>
+  <script>
+    'use strict'
+    let addTbl;
+
+    function insRow() {
+      addTbl = document.getElementById("addTable");  // 아이디가 addTable 인 테이블을 가져옴 
+      
+      let addRow = addTbl.insertRow(); // 그 테이블의 Row(행)을 만듬 그러면 행이 한개가 늘어나는데 그 행엔 아직 셀을 넣지 않았기때문에 빈공간임 
+      addRow.onmouseover = function() { // 사용자가 올린 마우스를 감지한것이 아니라 동적이기떄문에 컴퓨터가 올린것을 감지 
+        addTbl.clickedRowIndex = this.rowIndex; // 이벤트 내용은 추가할 테이블의 클릭된 행의 인덱스에 현재 마우스를 올린 행의 인덱스를 넣어줌
+      }
+      let addCell = addRow.insertCell(); //
+
+      let formTag = "";
+      
+      formTag += '단가:<input type="text" name="addText1" style="width:60px; height:20px; "/>'
+      formTag += '수량:<input type="text" name="addText2" style="width:60px; height:20px; "/>'   /*"onblur="formCalc();"/>'*/
+      formTag += '금액:<input type="text" name="result" readonly style="width:60px; height:20px;"/>'
+      formTag += '<input type="button" value="삭제" onclick="removeRow()"/>"'
+
+      addCell.innerHTML = formTag;
+    }
+
+    function removeRow() {
+      addTable.deleteRow(addTbl.clickedRowIndex);
+    }
+
+    let txt1;
+    let txt2;
+    let tot;
+    let tot2 = 0;
+    function fChcek() {
+      var myform = document.myform;
+
+      for(let i = 0; i < myform.elements.length; i++){
+        if(myform.elements[i].name == "addText1"){
+          if(myform.elements[i].value == ""){
+            alert("단가와 수량을 빠짐없이 입력해주세요");
+            myform.elements[i].focus();
+            return false;
+          }
+          else{
+            txt1 = myform.elements[i].value;
+          }
+        }
+        else if(myform.elements[i].name == "addText2"){
+          if(myform.elements[i].value == ""){
+            alert("단가와 수량을 빠짐없이 입력해주세요");
+            myform.elements[i].focus();
+            return false;
+          }
+          else{
+            txt2 = myform.elements[i].value;
+          }
+        }
+        else if(myform.elements[i].name == "result"){
+          tot = txt1 * txt2;
+          tot2 += tot;
+          myform.elements[i].value = tot;
+          tot = 0;
+        }
+      }
+      document.getElementById("demo").innerHTML = tot2;
+      tot2 = 0;
+    }
+
+  </script>
+</body>
+</html>

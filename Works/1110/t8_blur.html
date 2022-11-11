@@ -12,23 +12,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
     'use strict'  
-
     $(function(){
 
-      
-    })
+      $('#btn1').click(function(){
+        $(this).next().css('backgroundColor','orange');
+      });
+    });
 
   </script>
+  <style>
+    
+  </style>
 </head>
 <body>
   <p><br/></p>
   <div class="container"> 
-    <h2></h2>
-    <p>
-      
-    </p>
+    <h2>focus와 blur 이벤트 처리</h2>
+      <form name="myform">
+        <div>
+          성명 : <input type="text" name="name" class="form-control"/>
+          <input type="button" value="클릭" id="btn1" class="btn btn-danger form-control m-3"/>
+          <div id="demo">내용</div>
+        </div>
+      </form>
     <hr/>
-    <div id="demo"></div>
     <p><br/></p>
 </body>
 </html>
